@@ -57,15 +57,11 @@ function render(leads){
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    let oldLeads = []
-    oldLeads = JSON.parse(localStorage.getItem("myLeads"))
-    let listItems2 = ""
-        for (i = 0; i < oldLeads.length; i++){
-            listItems2 += `<li> 
-                <a href= 
-                    '${oldLeads[i]}' + target='_blank' > ${oldLeads[i]}`
-    
-        }
-    urEl.innerHTML = listItems2
+    render(JSON.parse(localStorage.getItem("myLeads")))
+    const storedNames = JSON.parse(localStorage.getItem("myLeads"))
+     if (storedNames) {
+        myLeads = storedNames
+        render(myLeads)
+    }
 })
 
